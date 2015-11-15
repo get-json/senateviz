@@ -261,15 +261,25 @@ $(function () {
     <script>
 
 	var govtrackID = [];
+  var tip = d3.tip()
+              .attr('class', 'd3-tip')
+              .attr('opacity',1)
+              //.offset([-10, 0])
+              .html(function(d) {
+                return "<strong>Name:</strong> <span style='color:red'>" + 'test' + "</span>";
+              })
   var data = d3.csv('data/senator_info.csv',function(error,data){
         
-      
+        //console.log(error);
         var senator = d3.select('#Layer_1').selectAll('rect')
+                 .call(tip)
                  .classed("senator", true) 
                  .on('mouseover',function(d){
                       //console.log("moused over");
-                      console.log("id for this element is:"+ " " + this.id);
+                      //console.log("id for this element is:"+ " " + this.id);
+                     
                       var temp_id = this.id.replace(/\D/g,'');
+                    
                       data.forEach(function(e){
                          govtrackID.push (e.govtrack_id);
                          var senatorName = e.first_name + " " + e.last_name;    
@@ -277,23 +287,18 @@ $(function () {
                          //console.log("govtrackID is" + " " + govtrackID + " " + senatorName);   
                          if(temp_id == e.govtrack_id){
                             console.log('match');
-
+                           
                          }    //if temp_id == e.govtrack_id   
                       });//data.forEach
-                          
+                      
+                      tip.show
                 });//on mouseover
 
-          var tip = d3.tip()
-              .attr('class', 'd3-tip')
-              .attr('opacity',.9)
-              //.offset([-10, 0])
-              .html(function(d) {
-                return "<strong>Name:</strong> <span style='color:red'>" + 'test' + "</span>";
-              })
 
-          senator.call(tip);
-          senator
-            .on('mouseover',tip.show)
+
+          //senator.call(tip);
+          //senator
+          //  .on('mouseover',tip.show)
   
 
 
