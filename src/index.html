@@ -271,7 +271,7 @@
                     <rect x="1207.9" y="299.5" transform="matrix(-0.9975 -7.061456e-02 7.061456e-02 -0.9975 2481.3772 785.4631)" fill="#A00808" width="84.6" height="52" class="republican TX" id="id412573" alt="Ted Cruz" />
                     <rect x="1106.2" y="292.3" transform="matrix(-0.9975 -7.061456e-02 7.061456e-02 -0.9975 2271.7791 740.9048)" fill="#A00808" width="84.6" height="52" class="republican LA" id="id400418" alt="David Vitter" />
                     <rect x="1109.4" y="231.8" transform="matrix(-0.9998 1.794543e-02 -1.794543e-02 -0.9998 2304.8149 520.8921)" fill="#A00808" width="84.6" height="52" class="repbulican AZ" id="id400134" alt="Jeff Flake" />
-                    <rect x="1001.2" y="119.3" transform="matrix(-0.9938 0.1109 -0.1109 -0.9938 2096.634 174.079)" fill="#A00808" width="84.6" height="52" class="republican IL" id="id400222" alt="Mark Kirk" />
+                    <rect x="1001.2" y="119.3" transform="matrix(-0.9938 0.1109 -0.1109 -0.9938 2096.634 174.079)" fill="#A00808" width="84.6" height="52" class="republican IL" id="id400222" alt="Mark Kirk" class = "beer"/>
                     <rect x="1099.9" y="106.9" transform="matrix(-0.9938 0.1109 -0.1109 -0.9938 2290.124 178.3499)" fill="#A00808" width="84.6" height="52" class="republican WV" id="id400061" alt="Shelley Capito" />
                     <rect x="1099" y="106" transform="matrix(-0.9938 0.1109 -0.1109 -0.9938 2284 123.3)" fill="#A00808" width="84.6" height="52" class="republican SD" id="id412669" alt="Mike Rounds" />
                     <rect x="1008.2" y="288.1" transform="matrix(-0.9975 -7.061456e-02 7.061456e-02 -0.9975 2076.2461 701.5237)" fill="#A00808" width="84.6" height="52" class="republican TN" id="id412248" alt="Bob Corker" />
@@ -315,12 +315,12 @@
 
             <div class="searchSenatorInfo">
 
-                <div id="searchbox" class="input-group-item">
+                <div id="searchbox" class="input-group-item" onSubmit = "srch()">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for Senator Name">
+                        <input type="text" id = "schbx" class="form-control" placeholder="Search for Senator Name" >
 
                         <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
+                    <button class="btn btn-default" type="button" onClick = "srch()">
                     	<i class="fa fa-search"></i>
                     </button>
                   </span>
@@ -333,10 +333,10 @@
 
                 <div class="input-group-item dropdown">
                     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Select from List of States
+                        <input type="TextBox" ID="datebox" Class="form-control" value = "Select from List of States"></input>
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <ul class="dropdown-menu" id = "ddlist" aria-labelledby="dropdownMenu1">
                         <li><a href="#">AL</a></li>
                         <li><a href="#">AK</a></li>
                         <li><a href="#">AS</a></li>
@@ -409,3 +409,13 @@
     </div>
     <!--row-->
     </div>
+
+    <script>
+    $('#ddlist li').on('click', function(){
+    $('#datebox').val($(this).text());
+    var seln = $(this).text();
+    console.log(seln);
+    stateseln(seln);
+});
+
+    </script>
