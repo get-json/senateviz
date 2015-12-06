@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+#senator-terms-served rect {
+  fill: #ddd;
+}
+
+#senator-terms-served path,
+#senator-terms-served .inner text {
+  display: none;
+}
+
+#senator-terms-served line {
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#senator-terms-served .inner line {
+  stroke: #fff;
+}
+
+#senator-terms-served .minor line {
+  stroke-opacity: .5;
+}

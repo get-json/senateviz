@@ -84,6 +84,9 @@ function update_senators(rawdata) {
 			
 			
 		;
+
+		
+		
         var rect = d3.select(id)
             .style("fill", function () {
                 return scale(total);
@@ -215,3 +218,4 @@ function srch() {
     })
 
 }
+
