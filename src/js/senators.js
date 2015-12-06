@@ -66,6 +66,8 @@ function update_senators(rawdata) {
         var imgStringBegin = " <img src= Images/";
         var imgLocation = d.govtrack_id + ".jpeg";
         var imgStringEnd = ">";
+        var age = (new Date("06/12/2015") - new Date(d.birthday))/ (1000 * 3600 * 24 * 365);
+        var tenure = (new Date("06/12/2015") - new Date(d.assumed_office))/ (1000 * 3600 * 24 * 365);
         var imgURL = imgStringBegin + imgLocation + imgStringEnd;
         var infoPane_html =
             '<div class="col-lg-2">' + imgURL + '</div>' + '<div class="col-lg-10">' + '<div class="row">' + '<span><h2 class="Senator_Name">' + senatorName + '</h2></span>' + '<span><h2 class="Senator_State_Party">' + d.state + ' | ' + d.party + '</h2></span>' + '</div>'
