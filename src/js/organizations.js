@@ -1,3 +1,4 @@
+var tm_width = 520;
 var tm_height = 550;
 
 sen_rect_width = 84.6;
@@ -9,7 +10,7 @@ var formatdollar = d3.format("0,000"); //put this here because this file gets lo
 
 //Gets called when the page is loaded.
 function init() {
-    var width = 520;
+    var width = tm_width;
     var margin = {
         top: 1,
         right: 0,
@@ -20,6 +21,8 @@ function init() {
     div = d3.select("#tmap")
         .style("position", "relative")
         .style("top", margin.top + "px");
+        //.style("width", tm_width + "px")
+        //.style("height", tm_height + "px");
 
     treemap = d3.layout.treemap()
         .size([width, tm_height])
@@ -175,16 +178,20 @@ function update_orgs(flatdata) {
 
 function position() {
     this.style("left", function (d) {
-            return d.x + "px";
+            //return d.x + "px";
+            return d.x / tm_width * 100 + "%";
         })
         .style("top", function (d) {
-            return d.y + "px";
+            //return d.y + "px";
+            return d.y / tm_height * 100 + "%";
         })
         .style("width", function (d) {
-            return Math.max(0, d.dx - 1) + "px";
+            //return Math.max(0, d.dx - 1) + "px";
+            return Math.max(0, ((d.dx - 1) / tm_width * 100)) + "%";
         })
         .style("height", function (d) {
-            return Math.max(0, d.dy - 1) + "px";
+            //return Math.max(0, d.dy - 1) + "px";
+            return Math.max(0, ((d.dy - 1) / tm_height * 100)) + "%";
         });
 }
 

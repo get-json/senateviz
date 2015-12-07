@@ -274,6 +274,13 @@ text-indent: 2px;
 	font-size:20px;
 	}
 
+#tmap {
+	position: relative; 
+	top: 1px; 
+	width: 520px;
+	height: 550px;
+}
+
 .treemap h5 {
     margin-top: 1em;
     margin-bottom: .5em;
